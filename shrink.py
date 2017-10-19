@@ -24,7 +24,7 @@ def scan(path):
 							for line in vmx:
 								# find the first drive scsi 0:0, defrag and compact it
 								if line.startswith("scsi0:0.fileName = \""):
-									print "Defrag and compact: " + path + "\\" + item + "\\" + line[20:-1]
+									print "Defrag and compact: \"" + path + "\\" + item + "\\" + line[20:-1]
 									os.system("vmware-vdiskmanager.exe -d \"" + path + "\\" + item + "\\" + line[20:-1])
 									os.system("vmware-vdiskmanager.exe -k \"" + path + "\\" + item + "\\" + line[20:-1])
 					except Exception as e:
